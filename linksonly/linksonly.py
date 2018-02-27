@@ -104,7 +104,7 @@ class LOB:
             return
         if serverid in self.json:
             if message.channel.id in self.json[serverid]["included_channels"]:
-                if re.match(self.link_regex, message.content) is None:
+                if re.search(self.link_regex, message.content) is None:
                     await self.bot.delete_message(message)
                     if self.json[serverid]["moveto"] != "":
                         movechannel=message.server.get_channel(self.json[serverid]["moveto"])
